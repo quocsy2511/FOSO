@@ -1,0 +1,60 @@
+[
+  {
+    "id": "section1",
+    "title": "Quy trình 5S là gì?",
+    "supTitle": []
+  },
+  {
+    "id": "section2",
+    "title": "Lợi ích quy trình 5S đem lại",
+    "supTitle": []
+  },
+  {
+    "id": "section3",
+    "title": "Tại sao doanh nghiệp nên áp dụng quy trình 5S?",
+    "supTitle": [
+      { "id": "section3", "title": "Cải thiện rõ nét môi trường làm việc" },
+      { "id": "section3", "title": "Tiết kiệm thời gian đăng kê" },
+      { "id": "section3", "title": "Tăng năng suất làm việc" },
+      { "id": "section3", "title": "Tiết kiệm chi phí" },
+      { "id": "section3", "title": "Tăng chất lượng sản phẩm" }
+    ]
+  },
+  {
+    "id": "section4",
+    "title": "Quy trình 5S gồm các bước:",
+    "supTitle": [
+      { "id": "section4", "title": "Seiri (Ngăn nắp)" },
+      { "id": "section4", "title": "Seiton (Sắp xếp)" },
+      { "id": "section4", "title": "Seiso (Vệ sinh)" },
+      { "id": "section4", "title": "Seiketsu (Tiêu chuẩn hóa)" },
+      { "id": "section4", "title": "Shitsuke (Kỷ luật)" }
+    ]
+  },
+  {
+    "id": "section5",
+    "title": "Quy trình được thực hiện như sau:",
+    "supTitle": [
+      { "id": "section4", "title": "Giai đoạn chuẩn bị" },
+      { "id": "section4", "title": "Triển khai rộng rãi" },
+      { "id": "section4", "title": "Thực hiện vệ sinh toàn bộ doanh nghiệp" },
+      { "id": "section4", "title": "Sàng lọc, sắp xếp và đánh giá" },
+      { "id": "section4", "title": "Đánh giá" }
+    ]
+  },
+  {
+    "id": "section6",
+    "title": "Quy trình 5S có giống với Kaizen?",
+    "supTitle": []
+  },
+  {
+    "id": "section7",
+    "title": "Đối tượng nào nên áp dụng 5S?",
+    "supTitle": []
+  },
+  {
+    "id": "section8",
+    "title": "Các yếu tố tạo nên thành công cho quy trình 5S",
+    "supTitle": []
+  }
+]
