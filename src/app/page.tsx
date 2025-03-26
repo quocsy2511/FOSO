@@ -68,10 +68,8 @@ export default function Home() {
                   Gia nhập cộng đồng FMRP – Kết nối, chia sẻ, cùng phát triển!
                 </p>
 
-                <div className="rounded-[40px] border border-white w-fit py-2 md:px-6 px-3 flex flex-row items-center md:gap-x-8 gap-x-2">
-                  <p className="font-bold text-[14px] text-white">
-                    Tham Gia Ngay
-                  </p>
+                <div className="rounded-[40px] border border-white text-white w-fit py-2 md:px-6 px-3 flex flex-row items-center md:gap-x-8 gap-x-2 hover:border-backgroundColor-green-1 hover:text-backgroundColor-green-1">
+                  <p className="font-bold text-[14px] ">Tham Gia Ngay</p>
                   <ArrowUp />
                 </div>
               </div>

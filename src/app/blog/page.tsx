@@ -84,8 +84,23 @@ const SectionTitle = ({
   );
 };
 
+const reactions = [
+  { title: "Hữu ích", icon: <Like /> },
+  { title: "Yêu thích", icon: <Heart /> },
+  { title: "Thú vị", icon: <StarStruck /> },
+  { title: "Bất ngờ", icon: <Hushed /> },
+  { title: "Nhàm chán", icon: <Yawning /> },
+  { title: "Tức giận", icon: <Pouting /> },
+];
+
 const Blog = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [selectedReaction, setSelectedReaction] = useState<string | null>(null);
+  const [selectedIdSection, setSelectedIdSection] = useState<string>("");
+
+  const handleReactionClick = (title: string) => {
+    setSelectedReaction((prev) => (prev === title ? null : title));
+  };
   return (
     <Main>
       <div className="w-full relative">
@@ -488,19 +503,21 @@ const Blog = () => {
                 </p>
 
                 <div className="flex md:flex-row flex-col justify-between items-center  3xl:px-[100px] xlg:gap-x-8">
-                  <ReactBlog count={1} title="Hữu ích" icon={<Like />} />
-                  <ReactBlog count={2} title="Yêu thích" icon={<Heart />} />
-                  <ReactBlog count={0} title="Thú vị" icon={<StarStruck />} />
-                  <ReactBlog count={1} title="Bất ngờ" icon={<Hushed />} />
-                  <ReactBlog count={0} title="Nhàm chán" icon={<Yawning />} />
-                  <ReactBlog count={0} title="Nhàm chán" icon={<Pouting />} />
+                  {reactions.map(({ title, icon }) => (
+                    <ReactBlog
+                      key={title}
+                      title={title}
+                      icon={icon}
+                      isSelected={selectedReaction === title}
+                      onClick={() => handleReactionClick(title)}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
           </div>
-
           {/* left */}
-          <div className="flex-1 mdd:hidden">
+          <div className="flex-1 mdd:hidden sticky top-0">
             <div className="w-full max-w-md">
               {/* Nút mở dropdown */}
               <button
@@ -523,7 +540,13 @@ const Blog = () => {
                       <li key={section.id}>
                         <a
                           href={`#${section.id}`}
-                          className="hover:underline hover:text-backgroundColor-green-5 "
+                          className={twMerge(
+                            "hover:underline hover:text-backgroundColor-green-5 ",
+                            selectedIdSection === section.id
+                              ? "font-bold text-backgroundColor-green-2"
+                              : ""
+                          )}
+                          onClick={() => setSelectedIdSection(section.id)}
                         >
                           {index + 1}. {section.title}
                         </a>
@@ -534,6 +557,9 @@ const Blog = () => {
                                 <a
                                   href={`#${sub.id}`}
                                   className="hover:underline hover:text-backgroundColor-green-5"
+                                  onClick={() =>
+                                    setSelectedIdSection(section.id)
+                                  }
                                 >
                                   {index + 1}. {sub.title}
                                 </a>
@@ -596,9 +622,9 @@ const Blog = () => {
               </CardVertical>
             </div>
           </div>
-
-          {/* relative */}
         </div>
+
+        {/* relative */}
         <div className="max-w-[1440px] mx-auto overflow-hidden">
           <h3 className="text-4xl font-extrabold text-typo-black-3 mb-6">
             Bài viết liên quan
