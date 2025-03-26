@@ -14,11 +14,11 @@ const BlogCard = ({ classNameImage }: BlogCard) => {
   return (
     <Link
       href="/blog"
-      className="flex flex-col min-w-[400px] max-w-[505px] pb-1  hover:bg-white rounded-[24px] cursor-pointer text-typo-gray-1 hover:text-backgroundColor-green-1"
+      className="group flex flex-col min-w-[400px] max-w-[505px] pb-1  hover:bg-white rounded-[24px] cursor-pointer text-typo-gray-1 hover:text-backgroundColor-green-1"
     >
       <div
         className={twMerge(
-          "relative w-full min-h-[300px] rounded-[24px]",
+          "relative w-full min-h-[300px] rounded-[24px] overflow-hidden",
           classNameImage
         )}
       >
@@ -27,7 +27,7 @@ const BlogCard = ({ classNameImage }: BlogCard) => {
           alt="blog"
           fill
           quality={100}
-          className="rounded-[24px] object-cover"
+          className="rounded-[24px] object-cover transition-transform duration-300 ease-in-out group-hover:scale-105 absolute inset-0"
         />
       </div>
       <div className="flex-col flex gap-y-4 mt-6 px-2 ">
