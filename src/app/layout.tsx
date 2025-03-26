@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
-
+import { ReactLenis } from "@/utils/SmoothScroll";
 const raleway = Raleway({
   variable: "--font-raleway",
   subsets: ["latin"],
@@ -19,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} antialiased`}>{children}</body>
+      <ReactLenis root>
+        <body className={`${raleway.variable} antialiased`}>{children}</body>
+      </ReactLenis>
     </html>
   );
 }
