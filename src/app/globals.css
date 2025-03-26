@@ -7,3 +7,6 @@
 body {
   font-family: var(--font-raleway), sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}

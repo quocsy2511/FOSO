@@ -14,7 +14,7 @@ const BlogCard = ({ classNameImage }: BlogCard) => {
   return (
     <Link
       href="/blog"
-      className="flex flex-col min-w-[400px] max-w-[505px] pb-1  hover:bg-white rounded-[24px] cursor-pointer"
+      className="flex flex-col min-w-[400px] max-w-[505px] pb-1  hover:bg-white rounded-[24px] cursor-pointer text-typo-gray-1 hover:text-backgroundColor-green-1"
     >
       <div
         className={twMerge(
@@ -30,12 +30,12 @@ const BlogCard = ({ classNameImage }: BlogCard) => {
           className="rounded-[24px] object-cover"
         />
       </div>
-      <div className="flex-col flex gap-y-4 mt-6 px-2">
+      <div className="flex-col flex gap-y-4 mt-6 px-2 ">
         <div className="rounded-lg bg-backgroundColor-blue px-2 py-1 w-fit">
           <p className="font-medium text-xs text-typo-blue">Quản Lý Sản Xuất</p>
         </div>
 
-        <p className="text-2xl font-extrabold text-typo-gray-1">
+        <p className="text-2xl font-extrabold ">
           Tại sao BOM quan trọng trong quản lý sản xuất?
         </p>
 
