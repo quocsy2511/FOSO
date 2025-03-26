@@ -18,7 +18,7 @@ const CardVertical = ({ children, className }: CardProps) => {
       {children}
 
       <div className="w-full px-7 pb-6">
-        <div className="rounded-[40px] border border-white text-white hover:border-backgroundColor-green-1 hover:text-backgroundColor-green-1 py-2 px-6 flex flex-row items-center justify-between gap-x-8 w-full cursor-pointer">
+        <div className="rounded-[40px] border border-white text-white hover:border-backgroundColor-green-1 hover:text-backgroundColor-green-1 hover:bg-white py-2 px-6 flex flex-row items-center justify-between gap-x-8 w-full cursor-pointer">
           <p className="font-bold text-[14px] ">Trải Nghiệm Ngay</p>
           <ArrowUp />
         </div>

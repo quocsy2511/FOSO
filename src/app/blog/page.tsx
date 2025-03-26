@@ -4,7 +4,6 @@ import Main from "@/components/layout/Main";
 import ReactBlog from "@/components/rate/Rating";
 import Social from "@/components/socical/Social";
 import Clock from "@/components/svg/Clock";
-import Collap from "@/components/svg/Collap";
 import DateTime from "@/components/svg/DateTime";
 import Heart from "@/components/svg/Heart";
 import Hushed from "@/components/svg/Hushed";
@@ -41,7 +40,7 @@ const ImageBlog = ({ src, subtitle, className }: ImageBlogProps) => {
           className
         )}
       >
-        <Image src={src} fill alt={src} className="object-cover" />
+        <Image src={src} fill alt={src} className="object-fill" />
       </div>
       <p className="text-base text-typo-gray-3 font-normal text-center ">
         {subtitle}
@@ -94,7 +93,6 @@ const reactions = [
 ];
 
 const Blog = () => {
-  const [isOpen, setIsOpen] = useState(true);
   const [selectedReaction, setSelectedReaction] = useState<string | null>(null);
   const [selectedIdSection, setSelectedIdSection] = useState<string>("");
 
@@ -519,24 +517,11 @@ const Blog = () => {
           {/* left */}
           <div className="flex-1 mdd:hidden sticky top-0">
             <div className="w-full max-w-md">
-              {/* Nút mở dropdown */}
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="flex justify-between items-center w-full px-4 py-3 text-2xl text-typo-black-3 font-extrabold"
-              >
-                Nội Dung Bài Viết
-                {isOpen ? (
-                  <Collap className="text-backgroundColor-green-2" />
-                ) : (
-                  <Collap className="rotate-180 " />
-                )}
-              </button>
-
-              {/* Nội dung dropdown */}
-              {isOpen && (
-                <div className="mt-2 p-4 w-full">
-                  <ul className="list-none space-y-2 cursor-pointer font-medium text-lg text-typo-gray-1">
-                    {content.map((section, index) => (
+              <div className="mt-2 py-4 w-full">
+                <ul className="list-none space-y-2 cursor-pointer font-medium text-lg text-typo-gray-1">
+                  {content.map((section, index) => {
+                    const NoSection = index + 1;
+                    return (
                       <li key={section.id}>
                         <a
                           href={`#${section.id}`}
@@ -551,27 +536,29 @@ const Blog = () => {
                           {index + 1}. {section.title}
                         </a>
                         {section.supTitle.length > 0 && (
-                          <ul className="ml-4 font-medium text-lg text-typo-gray-1">
-                            {section.supTitle.map((sub, index) => (
-                              <li key={index}>
-                                <a
-                                  href={`#${sub.id}`}
-                                  className="hover:underline hover:text-backgroundColor-green-5"
-                                  onClick={() =>
-                                    setSelectedIdSection(section.id)
-                                  }
-                                >
-                                  {index + 1}. {sub.title}
-                                </a>
-                              </li>
-                            ))}
+                          <ul className="ml-6 font-medium text-lg text-typo-gray-1">
+                            {section.supTitle.map((sub, index) => {
+                              return (
+                                <li key={index}>
+                                  <a
+                                    href={`#${sub.id}`}
+                                    className="hover:underline hover:text-backgroundColor-green-5"
+                                    onClick={() =>
+                                      setSelectedIdSection(section.id)
+                                    }
+                                  >
+                                    {NoSection}.{index + 1} {sub.title}
+                                  </a>
+                                </li>
+                              );
+                            })}
                           </ul>
                         )}
                       </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
 
             <div className="flex flex-col gap-y-8">
