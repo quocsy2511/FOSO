@@ -13,7 +13,7 @@ import StarStruck from "@/components/svg/StarStruck";
 import StartContent from "@/components/svg/StartContent";
 import Yawning from "@/components/svg/Yawning";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import content from "@/data/contentBlog.json";
 import BlogCard from "@/components/card/BlogCard";
@@ -97,10 +97,48 @@ const Blog = () => {
   const [selectedReaction, setSelectedReaction] = useState<string | null>(null);
   const [selectedIdSection, setSelectedIdSection] =
     useState<string>("section1");
+  const isScrollingByClick = useRef(false);
 
   const handleReactionClick = (title: string) => {
     setSelectedReaction((prev) => (prev === title ? null : title));
   };
+
+  const handleClickSection = (id: string) => {
+    isScrollingByClick.current = true; // Chặn Observer
+    setSelectedIdSection(id);
+
+    setTimeout(() => {
+      isScrollingByClick.current = false; // Cho phép Observer chạy lại sau khi cuộn hoàn tất
+    }, 1000);
+  };
+
+  //xử lý Obserber
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!isScrollingByClick.current) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setSelectedIdSection(entry.target.id);
+            }
+          });
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.8,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
   return (
     <Main>
       <div className="w-full relative">
@@ -548,7 +586,7 @@ const Blog = () => {
                               ? "font-bold text-backgroundColor-green-2"
                               : ""
                           )}
-                          onClick={() => setSelectedIdSection(section.id)}
+                          onClick={() => handleClickSection(section.id)}
                         >
                           {index + 1}. {section.title}
                         </a>
@@ -561,7 +599,7 @@ const Blog = () => {
                                     href={`#${sub.id}`}
                                     className=" hover:text-backgroundColor-green-4 transition-colors duration-300"
                                     onClick={() =>
-                                      setSelectedIdSection(section.id)
+                                      handleClickSection(section.id)
                                     }
                                   >
                                     {NoSection}.{index + 1} {sub.title}

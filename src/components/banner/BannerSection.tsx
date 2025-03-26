@@ -20,10 +20,11 @@ const BannerSection = () => {
       </motion.div>
 
       <motion.div
-        className="flex flex-col justify-center items-center py-[48px] gap-y-16 w-full"
+        className="relative flex flex-col justify-center items-center py-[48px] gap-y-16 w-full"
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+        layout
       >
         <div className="flex- flex-row justify-center items-center mdd:hidden ">
           <span className="text-sm font-normal text-typo-black-2">
@@ -35,7 +36,7 @@ const BannerSection = () => {
           <span className="text-sm font-semibold text-typo-black-3"> Blog</span>
         </div>
 
-        <div className="relative text-center">
+        <div className="text-center bg-transparent">
           <p className="font-normal text-[64px] text-typo-black-3 leading-tight mb-2">
             Blog{" "}
             <span className="font-extrabold bg-gradient-to-r from-[#53B086] via-[#85EEB3] to-[#53B086] bg-clip-text text-transparent">
@@ -43,9 +44,9 @@ const BannerSection = () => {
             </span>{" "}
             - <br />
             Cập Nhật Tin Tức{" "}
-            <span className="font-extrabold relative">
-              Mới Nhất{" "}
-              <span className="bg-backgroundColor-green-4 absolute left-0 bottom-1 w-full h-[24px] rounded-[40px] -z-10" />
+            <span className="font-extrabold relative inline-block">
+              <span className="z-10 relative">Mới Nhất</span>
+              <span className="bg-backgroundColor-green-4 absolute left-0 bottom-1 w-full h-[24px] rounded-[40px] z-[1] " />
             </span>
           </p>
 
