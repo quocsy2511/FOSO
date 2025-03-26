@@ -95,7 +95,8 @@ const reactions = [
 
 const Blog = () => {
   const [selectedReaction, setSelectedReaction] = useState<string | null>(null);
-  const [selectedIdSection, setSelectedIdSection] = useState<string>("");
+  const [selectedIdSection, setSelectedIdSection] =
+    useState<string>("section1");
 
   const handleReactionClick = (title: string) => {
     setSelectedReaction((prev) => (prev === title ? null : title));
@@ -534,7 +535,7 @@ const Blog = () => {
           >
             <div className="w-full max-w-md">
               <div className="mt-2 py-4 w-full">
-                <ul className="list-none space-y-2 cursor-pointer font-medium text-lg text-typo-gray-1">
+                <ul className="list-none space-y-2 cursor-pointer font-medium text-base text-typo-gray-1">
                   {content.map((section, index) => {
                     const NoSection = index + 1;
                     return (
@@ -542,7 +543,7 @@ const Blog = () => {
                         <a
                           href={`#${section.id}`}
                           className={twMerge(
-                            "hover:underline hover:text-backgroundColor-green-5 ",
+                            " hover:text-backgroundColor-green-4 transition-colors duration-300",
                             selectedIdSection === section.id
                               ? "font-bold text-backgroundColor-green-2"
                               : ""
@@ -552,13 +553,13 @@ const Blog = () => {
                           {index + 1}. {section.title}
                         </a>
                         {section.supTitle.length > 0 && (
-                          <ul className="ml-6 font-medium text-lg text-typo-gray-1">
+                          <ul className="ml-6 font-medium text-base text-typo-gray-1">
                             {section.supTitle.map((sub, index) => {
                               return (
                                 <li key={index}>
                                   <a
                                     href={`#${sub.id}`}
-                                    className="hover:underline hover:text-backgroundColor-green-5"
+                                    className=" hover:text-backgroundColor-green-4 transition-colors duration-300"
                                     onClick={() =>
                                       setSelectedIdSection(section.id)
                                     }

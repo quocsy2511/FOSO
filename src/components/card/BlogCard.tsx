@@ -53,9 +53,12 @@ const BlogCard = ({ classNameImage }: BlogCard) => {
           </div>
         </div>
 
-        <div className=" flex flex-row items-center gap-x-6 py-[10px] mx-4 text-typo-gray-3 hover:text-typo-blue">
+        <div className=" flex flex-row items-center gap-x-6 py-[10px] mx-4 text-typo-gray-3 group-hover:text-typo-blue">
           <p className="font-semibold text-lg ">Khám phá thêm</p>
-          <ArrowRight />
+          {/* <ArrowRight /> */}
+          <div className="transition-transform duration-300 group-hover:translate-x-1">
+            <ArrowRight />
+          </div>
         </div>
       </div>
     </Link>
