@@ -8,7 +8,7 @@ import ArrowUp from "@/components/svg/ArrowUp";
 import Search from "@/components/svg/Search";
 import Image from "next/image";
 import { useState } from "react";
-
+import { motion } from "framer-motion";
 const dataCategory = [
   {
     id: 1,
@@ -54,7 +54,12 @@ export default function Home() {
   return (
     <Main>
       <BannerSection />
-      <div className="relative mx-auto max-w-[1440px] flex flex-col gap-y-[72px]">
+      <motion.div
+        className="relative mx-auto max-w-[1440px] flex flex-col gap-y-[72px]"
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+      >
         <div className=" flex md:flex-row flex-col justify-between items-start gap-x-8 w-full mdd:px-1">
           {/* right */}
           <div className="flex flex-col md:w-[75%] gap-y-6 mdd:px-1">
@@ -187,7 +192,7 @@ export default function Home() {
           totalPages={totalPages}
           onPageChange={(page) => setCurrentPage(page)}
         />
-      </div>
+      </motion.div>
     </Main>
   );
 }

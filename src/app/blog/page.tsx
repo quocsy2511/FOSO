@@ -17,6 +17,7 @@ import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import content from "@/data/contentBlog.json";
 import BlogCard from "@/components/card/BlogCard";
+import { motion } from "framer-motion";
 
 const fiveS = [
   { term: "Seiri", meaning: "Ngăn nắp" },
@@ -102,7 +103,12 @@ const Blog = () => {
   return (
     <Main>
       <div className="w-full relative">
-        <div className="flex- flex-row justify-center items-center mb-12 max-w-[1440px] mx-auto mdd:hidden">
+        <motion.div
+          className="flex- flex-row justify-center items-center mb-12 max-w-[1440px] mx-auto mdd:hidden"
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <span className="text-sm font-normal text-typo-black-2">
             Trang chủ {">"}{" "}
           </span>
@@ -117,11 +123,16 @@ const Blog = () => {
             {" "}
             Quản Lý Sản Xuất
           </span>
-        </div>
+        </motion.div>
         {/* content */}
         <div className="max-w-[1440px] mx-auto flex flex-row justify-between items-start gap-x-8 ">
           {/* right */}
-          <div className="flex flex-col md:w-[70%] mdd:w-full mdd:px-1">
+          <motion.div
+            className="flex flex-col md:w-[70%] mdd:w-full mdd:px-1"
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <div className="rounded-lg bg-backgroundColor-blue px-2 py-1 w-fit mb-4">
               <p className="font-medium text-xs text-typo-blue">
                 Quản Lý Sản Xuất
@@ -513,9 +524,14 @@ const Blog = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
           {/* left */}
-          <div className="flex-1 mdd:hidden sticky top-0">
+          <motion.div
+            className="flex-1 mdd:hidden sticky top-0"
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <div className="w-full max-w-md">
               <div className="mt-2 py-4 w-full">
                 <ul className="list-none space-y-2 cursor-pointer font-medium text-lg text-typo-gray-1">
@@ -608,7 +624,7 @@ const Blog = () => {
                 </div>
               </CardVertical>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* relative */}
@@ -625,9 +641,13 @@ const Blog = () => {
         </div>
 
         {/* share */}
-        <div className="3xl:block hidden">
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <Social />
-        </div>
+        </motion.div>
       </div>
     </Main>
   );

@@ -3,10 +3,15 @@ import Dot from "@/components/svg/Dot";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
+import { motion } from "framer-motion";
 const Header = () => {
   return (
-    <div className=" w-full flex flex-row items-center justify-center py-6">
+    <motion.div
+      className=" w-full flex flex-row items-center justify-center py-6"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+    >
       <div className="rounded-[40px] bg-white shadow-lg py-3 md:px-[150px] flex flex-row justify-between items-center gap-x-16 px-4 mdd:w-full">
         <Link href="/">
           <Image
@@ -74,7 +79,7 @@ const Header = () => {
           <CaretDown />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

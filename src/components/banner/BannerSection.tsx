@@ -1,17 +1,30 @@
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 
 const BannerSection = () => {
   return (
     <div className="w-full flex flex-row justify-between items-center md:px-[43px] md:mb-[96px]">
-      <Image
-        src="/images/lich.png"
-        alt="schedule"
-        width={195}
-        height={188}
-        className="mdd:hidden"
-      />
-      <div className="flex flex-col justify-center items-center py-[48px] gap-y-16 w-full">
+      <motion.div
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <Image
+          src="/images/lich.png"
+          alt="schedule"
+          width={195}
+          height={188}
+          className="mdd:hidden"
+        />
+      </motion.div>
+
+      <motion.div
+        className="flex flex-col justify-center items-center py-[48px] gap-y-16 w-full"
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+      >
         <div className="flex- flex-row justify-center items-center mdd:hidden ">
           <span className="text-sm font-normal text-typo-black-2">
             Trang chủ {">"}{" "}
@@ -40,15 +53,21 @@ const BannerSection = () => {
             Cùng FOSO khám phá kiến thức, xu hướng công nghệ và sản xuất ngay!
           </p>
         </div>
-      </div>
+      </motion.div>
 
-      <Image
-        src="/images/hand.png"
-        alt="schedule"
-        width={195}
-        height={188}
-        className="mdd:hidden"
-      />
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <Image
+          src="/images/hand.png"
+          alt="schedule"
+          width={195}
+          height={188}
+          className="mdd:hidden"
+        />
+      </motion.div>
     </div>
   );
 };
