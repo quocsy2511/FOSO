@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const Header = () => {
   return (
     <motion.div
-      className=" w-full flex flex-row items-center justify-center py-6"
+      className=" w-full flex flex-row items-center justify-center py-6 fixed top-0 left-0 z-50"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}

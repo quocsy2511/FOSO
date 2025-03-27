@@ -566,7 +566,7 @@ const Blog = () => {
           </motion.div>
           {/* left */}
           <motion.div
-            className="flex-1 mdd:hidden sticky top-0"
+            className="flex-1 mdd:hidden sticky top-[120px]"
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}

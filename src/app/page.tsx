@@ -61,7 +61,7 @@ export default function Home() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
       >
-        <div className=" flex md:flex-row flex-col justify-between items-start gap-x-8 w-full mdd:px-1">
+        <div className="relative flex md:flex-row flex-col justify-between items-start gap-x-8 w-full mdd:px-1">
           {/* right */}
           <div className="flex flex-col md:w-[75%] gap-y-6 mdd:px-1">
             <p className="font-extrabold text-typo-black-3 text-4xl">
@@ -95,11 +95,14 @@ export default function Home() {
               <BlogCard classNameImage="md:h-[475px]" />
               <BlogCard classNameImage="md:h-[475px]" />
               <BlogCard classNameImage="md:h-[475px]" />
+              <BlogCard classNameImage="md:h-[475px]" />
+              <BlogCard classNameImage="md:h-[475px]" />
+              <BlogCard classNameImage="md:h-[475px]" />
             </div>
           </div>
 
           {/* left */}
-          <div className="flex-1 mdd:w-full">
+          <div className="flex-1 mdd:w-full sticky top-[150px]">
             <h3 className="font-extrabold text-typo-black-3 text-2xl mb-6">
               Tìm Kiếm
             </h3>

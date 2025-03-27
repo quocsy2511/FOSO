@@ -11,7 +11,7 @@ const Main = (props: IMainProps) => {
       {/* header */}
       <Header />
       {/* body */}
-      <div className="flex-1 pb-10 ">{props.children}</div>
+      <div className="flex-1 pb-10 mt-[130px]">{props.children}</div>
     </div>
   );
 };
